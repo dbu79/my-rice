@@ -1,0 +1,52 @@
+{
+    "include": [
+        "$HOME/.config/waybar/customModules.jsonc"
+    ],
+
+    "layer": "bot",
+    "spacing": 0, 
+    "height": 0,
+    "margin-bottom": 0,
+    "margin-top": 8,
+    "position": "top",
+    "margin-right": 500,
+    "margin-left": 500,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "network", "custom/power"],
+
+
+    "clock": {
+        "format": "󰥔 {:%I:%M %p}"
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% {icon}", 
+        "format-icons": [
+                "󰕿",  // 0-33%
+                "󰖀",  // 34-66%
+                "󰕾"   // 67-100%
+            ],
+        "format-muted": "󰝟"
+    },
+
+    "network": {
+        "format-wifi": "{icon} {essid}",
+        "format-icons": [
+            "󰤯",  // 0-20%
+            "󰤟",  // 20-40%
+            "󰤢",  // 40-60%
+            "󰤥",  // 60-80%
+            "󰤨"   // 80-100%
+        ],
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠"
+    }
+
+// 󰖩 
+// 󰕾
+// 󰍛
+// 󰾆
+// 󰥔
+}

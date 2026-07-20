@@ -7,14 +7,13 @@
     "spacing": 0, 
     "height": 0,
     "margin-bottom": 0,
-    "margin-top": 8,
+    "margin-top": 5,
+    "margin-right": 5,
+    "margin-left": 5,
     "position": "top",
-    "margin-right": 500,
-    "margin-left": 500,
-
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "custom/power"],
+    "modules-right": ["pulseaudio", "bluetooth", "network", "custom/power"],
 
 
     "clock": {
@@ -42,6 +41,15 @@
         ],
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠"
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-connected": " {device_alias}",
+        "format-disabled": "󰂲",
+        "tooltip-format": "{controller_alias}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "on-click": "blueman-manager"
     }
 
 // 󰖩 

@@ -10,22 +10,28 @@ window {
 button {
     color: #cdd6f4;
     background-color: rgba(30, 30, 46, 0.6);
-    border-style: solid;
-    border-width: 2px;
-    border-color: rgba(137, 180, 250, 0.3);
+    border: 2px solid rgba(137, 180, 250, 0.3);
     border-radius: 20px;
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25%;
+
     margin: 12px;
 }
 
-button:focus,
-button:active,
 button:hover {
     background-color: rgba(137, 180, 250, 0.25);
     border-color: #89b4fa;
-    outline-style: none;
+}
+
+button:active {
+    background-color: rgba(137, 180, 250, 0.35);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 #lock {
@@ -42,4 +48,8 @@ button:hover {
 
 #shutdown {
     background-image: image(url("./icons/shutdown_white.png"));
+}
+
+#reboot {
+    background-image: image(url("./icons/reboot_white.png"));
 }

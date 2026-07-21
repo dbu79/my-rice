@@ -76,7 +76,7 @@
       "type": "cpu",
       "key": "├─ CPU",
       "keyColor": "#8BD49C",
-      "format": "{name} ({cores-physical}C / {cores-logical}T) @ {freq-max}"
+      "format": "{name}"
     },
     {
       "type": "gpu",
@@ -88,7 +88,7 @@
       "type": "memory",
       "key": "├─ RAM",
       "keyColor": "#8BD49C",
-      "format": "{used} / {total} {percentage-bar} {percentage}",
+      "format": "{used} / {total} {percentage}",
       "percent": {
         "type": ["bar", "num"]
       }
@@ -97,7 +97,7 @@
       "type": "swap",
       "key": "├─ SWAP",
       "keyColor": "#8BD49C",
-      "format": "{used} / {total} {percentage-bar} {percentage}",
+      "format": "{used} / {total} {percentage}",
       "percent": {
         "type": ["bar", "num"]
       }
@@ -106,7 +106,7 @@
       "type": "disk",
       "key": "├─ DRIVE",
       "keyColor": "#8BD49C",
-      "format": "{mountpoint} {size-used} / {size-total} {size-percentage-bar} {size-percentage}",
+      "format": "{size-used} / {size-total} {size-percentage}",
       "percent": {
         "type": ["bar", "num"]
       }

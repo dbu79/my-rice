@@ -1,23 +1,33 @@
 {
-    "include": [
-        "$HOME/.config/waybar/customModules.jsonc"
-    ],
-
-    "layer": "bottom",
-    //"mode": "dock",
-    "exclusive": true,
-    "passthrough": false,
+    // "exclusive": true,
+    // "passthrough": false,
+    // "fixed-center": true,
+    // "ipc": true,
+    "layer": "top",
     "position": "top",
     "spacing": 3,
-    "fixed-center": true,
-    "ipc": true,
     "margin-top": 5,
     "margin-left": 5,
     "margin-right": 5,
-    "margin-bottom": 5,
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "bluetooth", "network", "custom/power"],
+    "margin-bottom": 1,
+    "modules-left": ["custom/search", "custom/notification", "hyprland/workspaces"],
+    "modules-center": ["clock", "custom/weather"],
+    "modules-right": ["network", "pulseaudio", "bluetooth",  "custom/power"],
+
+
+// ----- Left Side -----
+
+    "custom/search": {
+        "format": "\uf002",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    },
+
+    "custom/notification": {
+        "format": "\uf0f3",
+        "tooltip": false, 
+        "on-click": "swaync-client -t"
+    },
 
     "hyprland/workspaces": {
         "format": "{id}",
@@ -28,10 +38,14 @@
         }
     },
 
+// ----- Center -----
+
     "clock": {
         "format": "󰥔 {:%I:%M %p}", 
         "format-alt": "{:%A, %B %d, %Y}"
     },
+
+// ----- Right Side -----
 
     "pulseaudio": {
         "format": "{volume}% {icon}", 
@@ -63,5 +77,11 @@
         "tooltip-format": "{controller_alias}",
         "tooltip-format-connected": "{device_enumerate}",
         "on-click": "blueman-manager"
+    },
+
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip": false,
+        "on-click": "wlogout --buttons-per-row 5"
     }
 }

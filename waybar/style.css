@@ -3,91 +3,111 @@
     /* font-size: 13px; */
     min-height: 0;
     font-size: 100%;
-    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
 window#waybar {
     background-color: transparent;
     color: #ffffff;
+    min-height: 14px;
 }
+
+.modules-right,
+.modules-center, 
+.modules-left {
+	border-radius: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
+}
+
+/* ----- Right ----- */
 
 .modules-right {
-	border-radius: 20px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-right: 4px;
-	padding-left: 4px;
-}
-.modules-center {
-	border-radius: 20px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-right: 4px;
-	padding-left: 4px;
-}
-.modules-left {
-    border-radius: 20px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-right: 4px;
-	padding-left: 4px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    padding: 4px;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#mpd,
-#custom-power,
-#workspaces,
-#bluetooth {
+
+#network, 
+#bluetooth, 
+#pulseaudio, 
+#custom-power {
+    background-color: #85c1dc;
+    border-radius: 10px;
+    color: black;
+    padding: 2 12px;
+    /* min-width: 14px; */
+    min-height: 26px;
+    margin: 2px 3px;
+    padding: 0 8px;
+}
+
+
+/* ----- Left ----- */
+
+#custom-search, 
+#custom-notification {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#custom-search, 
+#custom-notification {
+    color: #cdd6f4;
+    border-radius: 10px;
+    border: 5px;
+    margin: 2px 3px;
+    padding: 0 8px;
+    min-width: 14px; 
+    min-height: 14px;
+}
+
+#clock {
     background-color: rgba(0, 0, 0, 0.6);
     color: #ffffff;
-    border-radius: 18px;
+    border-radius: 10px;
     padding: 4 12px;
 
 }
 
 #workspaces {
     background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 20px;
-    padding: 0 6px;
-    margin: 4px 4px 4px 0;
+    border-radius: 12px;
+    padding: 0 4px;
+    margin: 2px 3px;
 }
 
 #workspaces button {
-    padding: 0 10px;
-    margin: 4px 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
+    margin: 2px;
     color: #ffffff;
     background: transparent;
-    border-radius: 16px;
-    min-width: 10px;
+    border-radius: 10px;
+    min-height: 26px;
+    min-width: 26px;
     transition: all 0.2s ease-in-out;
 }
 
 #workspaces button.active {
-    background-color: #89b4fa; /* accent color — swap to your theme's accent */
+    background-color: #89b4fa;
     color: #000000;
-    border-radius: 16px;
+    border-radius: 10px;
     padding: 0 14px;
 }
 
 #workspaces button:hover {
     background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
 }
 
 #custom-power {
     font-size: 16;
+}
+
+#bluetooth {
+    font-size: 14;
 }

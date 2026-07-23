@@ -1,8 +1,4 @@
 {
-    // "exclusive": true,
-    // "passthrough": false,
-    // "fixed-center": true,
-    // "ipc": true,
     "layer": "top",
     "position": "top",
     "spacing": 3,
@@ -10,9 +6,19 @@
     "margin-left": 5,
     "margin-right": 5,
     "margin-bottom": 1,
-    "modules-left": ["custom/search", "custom/notification", "hyprland/workspaces"],
-    "modules-center": ["clock", "custom/weather"],
+    "modules-left": ["custom/search", "custom/notification", "hyprland/workspaces", "group/spotify"],
+    "modules-center": ["clock"],
     "modules-right": ["network", "pulseaudio", "bluetooth",  "custom/power"],
+
+    "group/spotify": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/spotify",
+            "custom/spotify-prev",
+            "custom/spotify-play",
+            "custom/spotify-next"
+        ]
+    },
 
 
 // ----- Left Side -----
@@ -36,6 +42,48 @@
         "persistent-workspaces": {
             "*": [1, 2, 3, 4, 5]
         }
+    },
+
+
+
+    "custom/spotify": {
+        "exec": "playerctl -p spotify metadata --format '{{ artist }} - {{ title }}' 2>/dev/null || echo ''",
+        "return-type": "",
+        "max-length": 40,
+        "format": "󰎆 {}",
+        "interval": 1,
+        "tooltip": false
+    },
+    "custom/spotify-prev": {
+        "exec": "echo 󰒮",
+        "exec-if": "playerctl -p spotify status 2>/dev/null",
+        "return-type": "",
+        "format": "{}",
+        "on-click": "playerctl -p spotify previous",
+        "interval": 1,
+        "signal": 8,
+        "tooltip": false
+    },
+    "custom/spotify-play": {
+        "exec": "playerctl -p spotify status 2>/dev/null | grep -q Playing && echo 󰏤 || echo 󰐊",
+        "exec-if": "playerctl -p spotify status 2>/dev/null",
+        "return-type": "",
+        "interval": 1,
+        "format": "{}",
+        "on-click": "playerctl -p spotify play-pause",
+        "signal": 8,
+        "tooltip": false,
+        "spacing": 0
+    },
+    "custom/spotify-next": {
+        "exec": "echo 󰒭",
+        "exec-if": "playerctl -p spotify status 2>/dev/null",
+        "return-type": "",
+        "format": "{}",
+        "on-click": "playerctl -p spotify next",
+        "interval": 1,
+        "signal": 8,
+        "tooltip": false
     },
 
 // ----- Center -----

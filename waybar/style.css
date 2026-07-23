@@ -1,113 +1,154 @@
 * {
     font-family: "JetBrainsMono Nerd Font Propo";
-    /* font-size: 13px; */
-    min-height: 0;
     font-size: 100%;
+    min-height: 0;
 }
 
 window#waybar {
-    background-color: transparent;
-    color: #ffffff;
-    min-height: 14px;
-}
-
-.modules-right,
-.modules-center, 
-.modules-left {
-	border-radius: 10px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-right: 4px;
-	padding-left: 4px;
-}
-
-/* ----- Right ----- */
-
-.modules-right {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
-    padding: 4px;
-}
-
-
-#network, 
-#bluetooth, 
-#pulseaudio, 
-#custom-power {
-    background-color: #85c1dc;
-    border-radius: 10px;
-    color: black;
-    padding: 2 12px;
-    /* min-width: 14px; */
-    min-height: 26px;
-    margin: 2px 3px;
-    padding: 0 8px;
-}
-
-
-/* ----- Left ----- */
-
-#custom-search, 
-#custom-notification {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-#custom-search, 
-#custom-notification {
-    color: #cdd6f4;
-    border-radius: 10px;
-    border: 5px;
-    margin: 2px 3px;
-    padding: 0 8px;
-    min-width: 14px; 
-    min-height: 14px;
-}
-
-#clock {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #ffffff;
-    border-radius: 10px;
-    padding: 4 12px;
-
-}
-
-#workspaces {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
-    padding: 0 4px;
-    margin: 2px 3px;
-}
-
-#workspaces button {
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-right: 4px;
-	padding-left: 4px;
-    margin: 2px;
-    color: #ffffff;
     background: transparent;
-    border-radius: 10px;
-    min-height: 26px;
-    min-width: 26px;
-    transition: all 0.2s ease-in-out;
+    color: #ffffff;
 }
 
-#workspaces button.active {
-    background-color: #89b4fa;
-    color: #000000;
+/* ================= Uniform Buttons ================= */
+
+#custom-search,
+#custom-notification,
+#network,
+#bluetooth,
+#pulseaudio,
+#custom-power {
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+
     border-radius: 10px;
-    padding: 0 14px;
+
+    min-width: 22px;
+    min-height: 22px;
+
+    padding: 0 10px;
+    margin: 2px;
+
+    transition: all 0.2s ease;
 }
 
-#workspaces button:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
+/* Search + notification use dark style */
+
+#custom-search,
+#custom-notification {
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
 }
 
 #custom-power {
-    font-size: 16;
+    font-size: 18;
 }
 
 #bluetooth {
-    font-size: 14;
+    font-size: 16;
 }
+
+/* ================= Spotify Player ================= */
+
+#custom-spotify-prev,
+#custom-spotify-play,
+#custom-spotify-next,
+#custom-spotify {
+    background-color: rgba(0,0,0,0.6);
+    color: #ffffff;
+    padding: 0 10px;
+    min-height: 22px;
+}
+
+#custom-spotify {
+    border-radius: 10px 0 0 10px;
+}
+
+#custom-spotify-next {
+    border-radius: 0 10px 10px 0;
+
+}
+
+
+#custom-spotify-prev,
+#custom-spotify-play,
+#custom-spotify-next {
+    font-size: 15;
+}
+
+#custom-spotify {
+    padding-right: 12px;
+}
+
+/* ================= Clock ================= */
+
+#clock {
+    background: rgba(0,0,0,0.6);
+    color: white;
+
+    border-radius: 10px;
+
+    padding: 0 14px;
+    min-height: 22px;
+
+    margin: 2px;
+}
+
+/* ================= Workspaces ================= */
+
+#workspaces {
+    background: rgba(0,0,0,0.6);
+
+    border-radius: 10px;
+    padding: 4px;
+    margin: 2px;
+}
+
+#workspaces button {
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0;
+    margin: 2px;
+
+    font-size: 14px;
+    font-weight: normal;
+
+    border: none;
+    border-radius: 8px;
+    box-shadow: none;
+
+    transition: none;
+}
+
+#workspaces button:hover,
+#workspaces button:focus,
+#workspaces button:active {
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0 4px;
+
+    font-size: 14px;
+    font-weight: normal;
+
+    background: transparent;
+    color: inherit;
+
+    border: none;
+    box-shadow: none;
+}
+
+#workspaces button:hover {
+    background-color: rgba(0,0,0,0.6);
+}
+
+#workspaces button.active {
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0 4px;
+
+    font-size: 14px;
+    font-weight: normal;
+
+    background: #89b4fa;
+    color: black;
+}
+

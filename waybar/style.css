@@ -1,11 +1,14 @@
+@import "colors.css";
 * {
     font-family: "JetBrainsMono Nerd Font Propo";
     font-size: 100%;
     min-height: 0;
+    border: none;
+    box-shadow: none;
 }
 
 window#waybar {
-    background: transparent;
+    background-color: transparent;
     color: #ffffff;
 }
 
@@ -17,13 +20,12 @@ window#waybar {
 #bluetooth,
 #pulseaudio,
 #custom-power {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
     color: #ffffff;
 
     border-radius: 10px;
 
     min-width: 22px;
-    min-height: 22px;
 
     padding: 0 10px;
     margin: 2px;
@@ -31,21 +33,17 @@ window#waybar {
     transition: all 0.2s ease;
 }
 
-/* Search + notification use dark style */
-
 #custom-search,
 #custom-notification {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
     color: #ffffff;
+
 }
 
 #custom-power {
-    font-size: 18;
+    font-size: 18px;
 }
 
-#bluetooth {
-    font-size: 16;
-}
 
 /* ================= Spotify Player ================= */
 
@@ -53,30 +51,27 @@ window#waybar {
 #custom-spotify-play,
 #custom-spotify-next,
 #custom-spotify {
-    background-color: rgba(0,0,0,0.6);
-    color: #ffffff;
-    padding: 0 10px;
-    min-height: 22px;
+  background-color: rgba(0,0,0,0.6);
+  color: #ffffff;
+  padding: 0 10px;
+  border: none;
+  box-shadow: none;
+  margin: 2px 0;
+}
+
+#custom-spotify-prev, 
+#custom-spotify-next, 
+#custom-spotify-play {
+    font-size: 15px;
 }
 
 #custom-spotify {
-    border-radius: 10px 0 0 10px;
+  border-radius: 10px 0 0 10px;
+  padding-right: 12px;
 }
 
 #custom-spotify-next {
-    border-radius: 0 10px 10px 0;
-
-}
-
-
-#custom-spotify-prev,
-#custom-spotify-play,
-#custom-spotify-next {
-    font-size: 15;
-}
-
-#custom-spotify {
-    padding-right: 12px;
+  border-radius: 0 10px 10px 0;
 }
 
 /* ================= Clock ================= */
@@ -88,7 +83,6 @@ window#waybar {
     border-radius: 10px;
 
     padding: 0 14px;
-    min-height: 22px;
 
     margin: 2px;
 }
@@ -105,7 +99,6 @@ window#waybar {
 
 #workspaces button {
     min-width: 22px;
-    min-height: 22px;
     padding: 0;
     margin: 2px;
 
@@ -143,12 +136,13 @@ window#waybar {
 #workspaces button.active {
     min-width: 22px;
     min-height: 22px;
-    padding: 0 4px;
+    padding: 0 2px;
 
     font-size: 14px;
     font-weight: normal;
 
-    background: #89b4fa;
+    background: @primary;
     color: black;
 }
+
 

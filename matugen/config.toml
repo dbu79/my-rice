@@ -1,0 +1,16 @@
+[config]
+[config.wallpaper]
+command = "awww img {{ image }} -t grow"
+set = true
+
+[templates.waybar]
+input_path = "/home/daniel/.config/matugen/templates/waybar-colors.css"
+output_path = "/home/daniel/.config/waybar/colors.css"
+
+[templates.rofi]
+input_path = "/home/daniel/.config/matugen/templates/rofi-colors.rasi"
+output_path = "/home/daniel/.config/rofi/colors.rasi"
+
+[templates.hyprland]
+input_path = "/home/daniel/.config/matugen/templates/hyprland-colors.lua"
+output_path = "/home/daniel/.config/hypr/hyprland-colors.lua"

@@ -39,6 +39,8 @@ local menu        = "rofi -show drun"
 local browser     = "firefox"
 local ide         = "code" 
 
+
+local colors = require("hyprland-colors")
 -------------------
 ---- AUTOSTART ----
 -------------------
@@ -49,10 +51,11 @@ local ide         = "code"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function () 
-  hl.exec_cmd("waybar & hyprpaper & firefox")
+  hl.exec_cmd("waybar & awww-daemon & firefox")
   hl.exec_cmd("dunst")
   hl.exec_cmd("hypridle")
   hl.exec_cmd("hyprsunset")
+  hl.exec_cmd("awww img ~/Pictures/wallpapers/fantasy-woods.jpg")
  end)
 
 
@@ -93,12 +96,12 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.config({
     general = {
         gaps_in  = 5,
-        gaps_out = 12,
+        gaps_out = 5,
 
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+            active_border   = { colors = { colors.primary, colors.primary }, angle = 45 },
             inactive_border = "rgba(595959aa)",
         },
 
@@ -213,10 +216,10 @@ hl.config({
 hl.config({
     misc = {
         force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
+        disable_splash_rendering = true,
     },
 })
-
 
 ---------------
 ---- INPUT ----
@@ -261,6 +264,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper-select.sh"))
 
 -- Opening Apps
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(terminal))
@@ -269,6 +273,7 @@ hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(ide))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(fileManager .. " ~/dotfiles"))
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd([[sh -c 'pgrep -x waybar >/dev/null && pkill -x waybar || waybar >/dev/null 2>&1 &']]))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -289,8 +294,8 @@ for i = 1, 10 do
 end
 
 -- Example special workspace (scratchpad)
--- hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
--- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + F",         hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -367,6 +372,5 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
-
 
 

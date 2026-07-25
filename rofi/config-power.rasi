@@ -1,0 +1,63 @@
+@import "colors.rasi"
+
+@import "colors.rasi"
+
+* {
+    font: "JetBrainsMono Nerd Font 14";
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 220px;
+    background-color: @background;
+    border: 2px;
+    border-color: @border-color;
+    border-radius: 16px;
+    padding: 10px 6px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ "listview" ];
+
+}
+
+listview {
+    lines: 5;
+    spacing: 4px;
+    fixed-height: false;
+    background-color: transparent;
+    border: 0px;
+
+}
+
+element {
+    orientation: horizontal;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: @foreground;
+}
+
+element normal.normal {
+    background-color: @normal-background;
+    text-color: @normal-foreground;
+}
+
+element selected.normal {
+    background-color: @primary;
+    text-color: @background;
+    border-radius: 10px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+}
+
+element-icon {
+    size: 0px;
+}

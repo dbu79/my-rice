@@ -55,7 +55,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("dunst")
   hl.exec_cmd("hypridle")
   hl.exec_cmd("hyprsunset")
-  hl.exec_cmd("awww img ~/Pictures/wallpapers/fantasy-woods.jpg")
+  hl.exec_cmd("awww img ~/Pictures/wallpapers/train_and_lake.png")
  end)
 
 
@@ -264,7 +264,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper-select.sh"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.config/scripts/wallpaper-select.sh"))
 
 -- Opening Apps
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(terminal))

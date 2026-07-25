@@ -130,6 +130,6 @@
     "custom/power": {
         "format": "󰐥",
         "tooltip": false,
-        "on-click": "wlogout --buttons-per-row 5"
+        "on-click": "~/.config/scripts/power.sh"
     }
 }

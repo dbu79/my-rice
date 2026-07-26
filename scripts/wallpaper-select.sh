@@ -26,3 +26,5 @@ matugen image "$wallpaper" --source-color-index 0
 
 # Reload Waybar
 pkill -SIGUSR2 waybar
+
+hyprctl reload

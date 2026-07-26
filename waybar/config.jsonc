@@ -30,9 +30,17 @@
     },
 
     "custom/notification": {
-        "format": "\uf0f3",
-        "tooltip": false, 
-        "on-click": "swaync-client -t"
+        "exec": "swaync-client -swb",
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "none": "",
+            "notification": "",
+            "dnd-none": "",
+            "dnd-notification": ""
+        },
+        "tooltip": false,
+        "on-click": "swaync-client -t -sw"
     },
 
     "hyprland/workspaces": {

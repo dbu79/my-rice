@@ -29,15 +29,26 @@ window#waybar {
 
     padding: 0 10px;
     margin: 2px;
-
-    transition: all 0.2s ease;
 }
 
-#custom-search,
 #custom-notification {
     background: rgba(0,0,0,0.6);
     color: #ffffff;
 
+    border-radius: 10px;
+
+    min-width: 22px;
+
+    padding: 0 9px 0 10px;
+    margin: 2px;
+}
+
+#custom-notification.notification {
+    color: @primary;
+}
+
+#custom-notification.dnd-notification {
+    color: @error;
 }
 
 #custom-power {
@@ -68,6 +79,7 @@ window#waybar {
 #custom-spotify {
   border-radius: 10px 0 0 10px;
   padding-right: 12px;
+  font-style: italic;
 }
 
 #custom-spotify-next {
@@ -117,7 +129,8 @@ window#waybar {
 #workspaces button:active {
     min-width: 22px;
     min-height: 22px;
-    padding: 0 4px;
+    padding: 0;
+    margin: 2px;
 
     font-size: 14px;
     font-weight: normal;
@@ -129,14 +142,10 @@ window#waybar {
     box-shadow: none;
 }
 
-#workspaces button:hover {
-    background-color: rgba(0,0,0,0.6);
-}
-
 #workspaces button.active {
     min-width: 22px;
     min-height: 22px;
-    padding: 0 2px;
+    padding: 0 4px;
 
     font-size: 14px;
     font-weight: normal;
@@ -144,5 +153,4 @@ window#waybar {
     background: @primary;
     color: black;
 }
-
 

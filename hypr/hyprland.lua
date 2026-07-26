@@ -52,7 +52,7 @@ local colors = require("hyprland-colors")
 --
 hl.on("hyprland.start", function () 
   hl.exec_cmd("waybar & awww-daemon & firefox")
-  hl.exec_cmd("dunst")
+  hl.exec_cmd("swaync")
   hl.exec_cmd("hypridle")
   hl.exec_cmd("hyprsunset")
   hl.exec_cmd("awww img ~/Pictures/wallpapers/train_and_lake.png")
@@ -154,8 +154,8 @@ hl.curve("easy",           { type = "spring", mass = 1, stiffness = 71.2633, dam
 
 hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows",       enabled = true,  speed = 4.79, spring = "easy" })
-hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 4.1,  spring = "easy",         style = "popin 87%" })
+hl.animation({ leaf = "windows",       enabled = true,  speed = 4.79, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 4.1,  bezier = "easeOutQuint", style = "popin 87%" })
 hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.49, bezier = "linear",       style = "popin 87%" })
 hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 1.73, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.46, bezier = "almostLinear" })
@@ -356,14 +356,6 @@ hl.window_rule({
     no_focus = true,
 })
 
--- Layer rules also return a handle.
--- local overlayLayerRule = hl.layer_rule({
---     name  = "no-anim-overlay",
---     match = { namespace = "^my-overlay$" },
---     no_anim = true,
--- })
--- overlayLayerRule:set_enabled(false)
-
 -- Hyprland-run windowrule
 hl.window_rule({
     name  = "move-hyprland-run",
@@ -373,4 +365,9 @@ hl.window_rule({
     float = true,
 })
 
+hl.layer_rule({
+    name = "notfication-animations",
+    match = { namespace = "swaync-control-center"},
+    animation = "slide left"
+})
 

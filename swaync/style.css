@@ -1,0 +1,118 @@
+@import "../waybar/colors.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 14px;
+  transition: 300ms ease;
+}
+
+/* Control center panel */
+.control-center {
+  background-color: alpha(@background, 0.85);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.control-center .notification-row .notification-background {
+  background-color: alpha(@surface_variant, 0.6);
+  border-radius: 10px;
+  margin: 6px;
+  padding: 6px;
+}
+
+/* Popup notifications (top right toasts) */
+.notification-row {
+  outline: none;
+}
+
+.notification-row .notification-background .notification {
+  background-color: alpha(@surface_variant, 0.85);
+  border-radius: 10px;
+  padding: 8px;
+  margin: 6px;
+}
+
+.notification-content {
+  padding: 6px;
+}
+
+.notification-default-action {
+  border-radius: 10px;
+}
+
+.summary {
+  color: @on_surface;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.body {
+  color: @secondary;
+  font-size: 13px;
+}
+
+.time {
+  color: @outline;
+  font-size: 11px;
+}
+
+.close-button {
+  background-color: @error;
+  color: @background;
+  border-radius: 100%;
+  padding: 2px;
+}
+
+.close-button:hover {
+  background-color: shade(@error, 1.1);
+}
+
+/* Widget title bar */
+.widget-title {
+  color: @on_surface;
+  padding: 8px;
+}
+
+.widget-title > button {
+  background-color: @primary;
+  color: @on_primary;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+/* DND toggle */
+.widget-dnd {
+  padding: 8px;
+  color: @on_surface;
+}
+
+.widget-dnd > switch {
+  background-color: alpha(@surface_variant, 0.8);
+  border-radius: 10px;
+}
+
+.widget-dnd > switch:checked {
+  background-color: @primary;
+}
+
+/* Notification icons */
+.notification-icon {
+  border-radius: 8px;
+}
+
+/* Scroll area */
+.notification-group {
+  background-color: transparent;
+}
+
+scrollbar {
+  opacity: 0;
+  -gtk-icon-shadow: none;
+  min-width: 0px;
+  min-height: 0px;
+}
+
+scrollbar slider {
+  min-width: 0px;
+  min-height: 0px;
+}

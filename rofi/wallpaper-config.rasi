@@ -1,0 +1,66 @@
+@import "colors.rasi"
+
+* {
+    background-color: transparent;
+    accent: @primary;
+}
+
+window {
+    width: 70%;
+    background-color: @background;
+    border: 2px;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+mainbox {
+    children: [ listview ];
+    spacing: 16px;
+}
+
+inputbar {
+    enabled: false;
+}
+
+entry {
+    enabled: false;
+}
+
+prompt {
+    enabled: false;
+}
+
+
+listview {
+    columns: 4;
+    lines: 2;
+    fixed-height: false;
+    spacing: 12px;
+    padding: 4px;
+}
+
+element {
+    orientation: vertical;
+    border-radius: 10px;
+    padding: 6px;
+    border: 3px;
+    border-color: transparent;
+}
+
+element selected {
+    background-color: @accent;
+    border-color: @accent;
+}
+
+element-icon {
+    size: 260px;
+    /* forces 16:9 cells so 1920x1080 images fill without odd cropping */
+    aspect-ratio: 1.777;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    border-radius: 6px;
+}
+
+element-text {
+    enabled: false;
+}

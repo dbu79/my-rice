@@ -17,7 +17,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       650px;
+    width:                       400px;
     height:                      450px;
     x-offset:                    0px;
     y-offset:                    0px;
@@ -27,7 +27,7 @@ window {
     border-color:                @secondary-container;
     border-radius:               15px;
     cursor:                      "default";
-    background-color:            @on-primary-fixed-trans;}
+    background-color:            @background;}
 
 mainbox {
     enabled:                     true;
@@ -35,7 +35,7 @@ mainbox {
     padding:                     10px;
     background-color:            transparent;
     orientation:                 vertical;
-    children:                    [ "inputbar", "listview", "mode-switcher" ];
+    children:                    [ "inputbar", "listview" ];
 }
 
 dummy {
@@ -47,8 +47,8 @@ inputbar {
     spacing:                     10px;
     padding:                     15px;
     border-radius:               10px;
-    background-color:		 @on-primary;
-    text-color:			 @on-surface;
+    background-color:		     @on-primary;
+    text-color:			         @on-surface;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
 textbox-prompt-colon {
@@ -67,12 +67,6 @@ entry {
     placeholder-color:           inherit;
 }
 
-mode-switcher{
-    enabled:                     true;
-    spacing:                     10px;
-    background-color:            transparent;
-    text-color:                  @primary-fixed;
-}
 button {
     padding:                     15px;
     border-radius:               10px;

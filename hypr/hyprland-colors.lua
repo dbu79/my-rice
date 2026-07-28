@@ -2,24 +2,24 @@
 -- Import with: local colors = require("hyprland-colors")
 
 return {
-	background    = "#101417",
-	foreground    = "#e0e3e8",
+	background    = "#101418",
+	foreground    = "#e0e2e8",
 
-	primary       = "#97ccf9",
-	on_primary    = "#003450",
+	primary       = "#99ccfa",
+	on_primary    = "#003351",
 
-	secondary     = "#b8c8d9",
-	on_secondary  = "#22323f",
+	secondary     = "#b8c8da",
+	on_secondary  = "#23323f",
 
-	tertiary      = "#d0bfe7",
-	on_tertiary   = "#362b4a",
+	tertiary      = "#d1bfe7",
+	on_tertiary   = "#372a4a",
 
-	surface       = "#101417",
-	surface_variant = "#41474d",
-	on_surface    = "#e0e3e8",
+	surface       = "#101418",
+	surface_variant = "#42474e",
+	on_surface    = "#e0e2e8",
 
 	error         = "#ffb4ab",
-	outline       = "#8b9198",
+	outline       = "#8c9198",
 
-	accent        = "#d0bfe7",
+	accent        = "#d1bfe7",
 }

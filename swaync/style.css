@@ -20,7 +20,7 @@
   padding: 6px;
 }
 
-/* Popup notifications (top right toasts) */
+/* Popup notifications */
 .notification-row {
   outline: none;
 }
@@ -28,8 +28,9 @@
 .notification-row .notification-background .notification {
   background-color: alpha(@surface_variant, 0.85);
   border-radius: 10px;
-  padding: 8px;
-  margin: 6px;
+  padding: 0;
+  margin: 0;
+    min-height: 0px;
 }
 
 .notification-content {
@@ -43,17 +44,17 @@
 .summary {
   color: @on_surface;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .body {
   color: @secondary;
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .time {
   color: @outline;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .close-button {

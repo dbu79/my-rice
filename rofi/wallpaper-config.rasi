@@ -1,12 +1,14 @@
 @import "colors.rasi"
 
 * {
+    font: "JetBrainsMono Nerd Font 10";
     background-color: transparent;
     accent: @primary;
 }
 
 window {
-    width: 70%;
+    width: 60%;
+    height: 420px;
     background-color: @background;
     border: 2px;
     border-radius: 12px;
@@ -14,28 +16,33 @@ window {
 }
 
 mainbox {
-    children: [ listview ];
-    spacing: 16px;
+    children: [ inputbar, listview ];
+    spacing: 20px;
 }
 
 inputbar {
-    enabled: false;
-}
+    enabled: true;
+    background-color: @surface;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 2px;
 
-entry {
-    enabled: false;
 }
 
 prompt {
     enabled: false;
 }
 
+entry {
+    placeholder: "Search wallpapers...";
+    text-color: @on-surface;
+}
 
 listview {
     columns: 4;
-    lines: 2;
+    lines: 1;
     fixed-height: false;
-    spacing: 12px;
+    spacing: 16px;
     padding: 4px;
 }
 
@@ -45,22 +52,23 @@ element {
     padding: 6px;
     border: 3px;
     border-color: transparent;
+    spacing: 8px;
 }
 
 element selected {
-    background-color: @accent;
-    border-color: @accent;
+    background-color: @on-primary-fixed-trans;
 }
 
 element-icon {
-    size: 260px;
-    /* forces 16:9 cells so 1920x1080 images fill without odd cropping */
-    aspect-ratio: 1.777;
+    size: 220px;
     horizontal-align: 0.5;
     vertical-align: 0.5;
     border-radius: 6px;
 }
 
 element-text {
-    enabled: false;
+    enabled: true;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    text-color: @on-surface;
 }

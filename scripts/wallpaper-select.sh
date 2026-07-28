@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-wall_dir="$HOME/Pictures/wallpapers"
+wall_dir="$HOME/Pictures/wallpapers/cropped"
+
+rofi_theme="$HOME/.config/rofi/wallpaper-config.rasi"
 
 selected=$(
 find "$wall_dir" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \) \
@@ -8,7 +10,10 @@ find "$wall_dir" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" 
     name=$(basename "$img")
     printf '%s\0icon\x1f%s\n' "$name" "$img"
   done \
-| rofi -dmenu -p "Select Wallpaper" -show-icons
+| rofi \
+    -dmenu \
+    -show-icons \
+    -theme "$rofi_theme"
 )
 
 [ -z "$selected" ] && exit 0

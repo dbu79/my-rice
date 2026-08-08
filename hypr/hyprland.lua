@@ -63,8 +63,8 @@ end)
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_SIZE", "22")
+hl.env("HYPRCURSOR_SIZE", "22")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -90,8 +90,8 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.config({
 	general = {
-		gaps_in = 5,
-		gaps_out = 5,
+		gaps_in = 3,
+		gaps_out = 3,
 
 		border_size = 2,
 
@@ -110,12 +110,12 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 10,
+		rounding = 5,
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
-		active_opacity = 0.9,
-		inactive_opacity = 0.9,
+		active_opacity = 1.0,
+		inactive_opacity = 1.0,
 
 		shadow = {
 			enabled = true,
@@ -240,7 +240,7 @@ hl.config({
 
 		follow_mouse = 1,
 
-		sensitivity = -0.75, -- -1.0 - 1.0, 0 means no modification.
+		sensitivity = -0.825, -- -1.0 - 1.0, 0 means no modification.
 		accel_profile = flat,
 		touchpad = {
 			natural_scroll = false,
@@ -264,6 +264,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifierd
 
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
+
 hl.bind(
 	mainMod .. " + M",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
@@ -271,6 +272,7 @@ hl.bind(
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.config/scripts/wallpaper-select.sh"))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("~/.config/scripts/power.sh"))
 
 -- Opening Apps
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(terminal))

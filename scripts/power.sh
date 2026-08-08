@@ -1,23 +1,26 @@
 #!/bin/bash
 
-options="Lock\nLogout\nReboot\nShutdown"
+options="Lock\nLogout\nSleep\nReboot\nShutdown"
 
-choice=$(printf "Lock\nLogout\nReboot\nShutdown" | rofi \
-    -dmenu \
-    -p "Power" \
-    -theme ~/.config/rofi/power-config.rasi)
+choice=$(printf "Lock\nLogout\nSleep\nReboot\nShutdown" | rofi \
+  -dmenu \
+  -p "Power" \
+  -theme ~/.config/rofi/power-config.rasi)
 
 case "$choice" in
-    "Lock")
-        hyprlock
-        ;;
-    "Logout")
-        hyprctl dispatch exit
-        ;;
-    "Reboot")
-        systemctl reboot
-        ;;
-    "Shutdown")
-        systemctl poweroff
-        ;;
+"Lock")
+  hyprlock
+  ;;
+"Logout")
+  hyprctl dispatch exit
+  ;;
+"Sleep")
+  systemctl suspend
+  ;;
+"Reboot")
+  systemctl reboot
+  ;;
+"Shutdown")
+  systemctl poweroff
+  ;;
 esac

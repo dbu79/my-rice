@@ -135,8 +135,8 @@ hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "linear
 hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.79, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "almostLinear" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "easeInOutCubic", style = "slidehoriz" })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "easeInOutCubic", style = "slidehoriz" })
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
 
 hl.config({
@@ -183,7 +183,7 @@ hl.config({
 
 		follow_mouse = 1,
 
-		sensitivity = -0.825, -- -1.0 - 1.0, 0 means no modification.
+		sensitivity = -0.85, -- -1.0 - 1.0, 0 means no modification.
 		accel_profile = flat,
 		touchpad = {
 			natural_scroll = false,

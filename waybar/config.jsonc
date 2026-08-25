@@ -1,60 +1,169 @@
 {
-    "layer": "top",
-    "position": "top",
-    "spacing": 3,
-    "margin-top": 5,
-    "margin-left": 5,
-    "margin-right": 5,
-    "margin-bottom": 1,
-    "modules-left": ["custom/search", "custom/notification", "hyprland/workspaces", "group/spotify"],
-    "modules-center": ["clock"],
-    "modules-right": ["network", "pulseaudio", "bluetooth",  "custom/power"],
+"include": [
+    "$HOME/.config/waybar/Modules"
+],
 
-    "group/spotify": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/spotify",
-            "custom/spotify-prev",
-            "custom/spotify-play",
-            "custom/spotify-next"
-        ]
-    },
+"layer": "top",
+"position": "top",
+"exclusive": true,
+"passthrough": false,
+"gtk-layer-shell": true,
+"spacing": 8,
+"margin-left": 12,
+"margin-right": 12,
+"margin-top": 2,
+    
+"modules-left": ["group/mobo_drawer", "hyprland/workspaces", "mpris", "group/spotify"],
+"modules-center": ["clock#2"],
+"modules-right": ["hyprland/window", "group/audio", "group/connections"],
 
 
-// ----- Left Side -----
+// Left Modules 
 
-    "custom/search": {
-        "format": "\uf002",
-        "tooltip": false,
-        "on-click": "rofi -show drun"
-    },
-
-    "custom/notification": {
-        "exec": "swaync-client -swb",
-        "return-type": "json",
-        "format": "{icon}",
-        "format-icons": {
-            "none": "",
-            "notification": "",
-            "dnd-none": "",
-            "dnd-notification": ""
+"group/mobo_drawer": {
+	"orientation": "inherit",
+	"drawer": {
+		"transition-duration": 500,
+		"children-class": "cpu",
+		"transition-left-to-right": true
         },
-        "tooltip": false,
-        "on-click": "swaync-client -t -sw"
-    },
+	"modules": [
+		"memory",
+		"cpu",
+		"temperature",		
+		"disk"
+	]
+}, 
+"hyprland/workspaces": {
+	"disable-scroll": true,
+	"all-outputs": true,
+	"warp-on-scroll": false,
+	"sort-by-number": true,
+	"show-special": false,
+	"on-click": "activate",
+	"on-scroll-up": "hyprctl dispatch workspace e+1",
+	"on-scroll-down": "hyprctl dispatch workspace e-1",
+	"persistent-workspaces": {
+		"*": 5
+	  },
+	"format": "{icon} {windows}",
+	"format-window-separator": " ",
+	"window-rewrite-default": " ",
+	"window-rewrite": {		
+		"title<.*amazon.*>": " ",
+		"title<.*reddit.*>": " ",
 
-    "hyprland/workspaces": {
-        "format": "{id}",
-        "all-outputs": true,
-        "active-only": false,
-        "persistent-workspaces": {
-            "*": [1, 2, 3, 4, 5]
-        }
-    },
+		"class<firefox|org.mozilla.firefox|librewolf|floorp|mercury-browser|[Cc]achy-browser>": " ",
+		"class<zen>": "󰰷 ",
+		"class<waterfox|waterfox-bin>": " ",
+		"class<microsoft-edge>": " ",
+		"class<Chromium|Thorium|[Cc]hrome>": " ",
+		"class<brave-browser>": "🦁 ",
+		"class<tor browser>": " ",
+		"class<firefox-developer-edition>": "🦊 ",
 
+		"class<kitty|konsole|[Aa]lacritty>": " ",
+		"class<kitty-dropterm>": " ",
+		"class<com.mitchellh.ghostty>": " ",
+		"class<org.wezfurlong.wezterm>": " ",
+		"class<Warp|warp|dev.warp.Warp|warp-terminal>": "󰰭 ",
 
+		"class<[Tt]hunderbird|[Tt]hunderbird-esr>": " ",
+		"class<eu.betterbird.Betterbird>": " ",
+		"title<.*gmail.*>": "󰊫 ",
 
-    "custom/spotify": {
+		"class<[Tt]elegram-desktop|org.telegram.desktop|io.github.tdesktop_x64.TDesktop>": " ",
+		"class<discord|discord-canary|[Ww]ebcord|[Vv]esktop|com.discordapp.Discord|dev.vencord.Vesktop>": " ",
+		"class<[Ss]ignal|signal-desktop|org.signal.Signal>": "󰍩 ",
+		"title<.*Signal.*>": "󰍩 ",
+		"title<.*whatsapp.*>": " ",
+		"title<.*zapzap.*>": " ",
+		"title<.*messenger.*>": " ",
+		"title<.*facebook.*>": " ",
+		"title<.*Discord.*>": " ",
+
+		"title<.*ChatGPT.*>": "󰚩 ",
+		"title<.*deepseek.*>": "󰚩 ",
+		"title<.*qwen.*>": "󰚩 ",
+		"class<subl>": "󰅳 ",
+		"class<slack>": " ",
+
+		"class<mpv>": " ",
+		"class<celluloid|Zoom>": " ",
+		"class<Cider>": "󰎆 ",
+		"title<.*Picture-in-Picture.*>": " ",
+		"title<.*youtube.*>": " ",
+		"class<vlc>": "󰕼 ",
+		"class<[Kk]denlive|org.kde.kdenlive>": "🎬 ",
+		"title<.*Kdenlive.*>": "🎬 ",
+		"title<.*cmus.*>": " ",
+		"class<[Ss]potify>": " ",
+		"class<Plex>": "󰚺 ",
+
+		"class<virt-manager>": " ",
+		"class<.virt-manager-wrapped>": " ",
+		"class<remote-viewer|virt-viewer>": " ",
+		"class<virtualbox manager>": "💽 ",
+		"title<virtualbox>": "💽 ",
+		"class<remmina|org.remmina.Remmina>": "🖥️ ",
+
+		"class<VSCode|code|code-url-handler|code-oss|codium|codium-url-handler|VSCodium>": "󰨞 ",
+		"class<dev.zed.Zed>": "󰵁",
+		"class<codeblocks>": "󰅩 ",
+		"title<.*github.*>": " ",
+		"class<mousepad>": " ",
+		"class<libreoffice-writer>": " ",
+		"class<libreoffice-startcenter>": "󰏆 ",
+		"class<libreoffice-calc>": " ",
+		"title<.*nvim ~.*>": " ",
+		"title<.*vim.*>": " ",
+		"title<.*nvim.*>": " ",
+		"title<.*figma.*>": " ",
+		"title<.*jira.*>": " ",
+		"class<jetbrains-idea>": " ",
+
+		"class<obs|com.obsproject.Studio>": " ",
+
+		"class<polkit-gnome-authentication-agent-1>": "󰒃 ",
+		"class<nwg-look>": " ",
+		"class<nwg-displays>": " ",
+		"class<[Pp]avucontrol|org.pulseaudio.pavucontrol>": "󱡫 ",
+		"class<steam>": " ",
+		"class<thunar|nemo>": "󰝰 ",	
+		"class<Gparted>":"",
+		"class<gimp>": " ",
+		"class<emulator>": "📱 ",
+		"class<android-studio>": " ",
+		"class<org.pipewire.Helvum>": "󰓃",
+		"class<localsend>":"",
+		"class<PrusaSlicer|UltiMaker-Cura|OrcaSlicer>": "󰹛",
+
+		"class<io.github.kolunmi.Bazaar>": " ",
+		"title<^Bazaar$>": " ",
+
+		"class<com.gabm.satty>": " ",
+		"title<^satty$>": " ",
+
+		"class<[Bb]ox[Bb]uddy|io.github.dvlv.boxbuddy|io.github.dvlv.BoxBuddy>": " ",
+		"title<.*BoxBuddy.*>": " ",
+
+		"title<Hyprland Keybinds>": " ",
+		"title<Niri Keybinds>": " ",
+		"title<BSPWM Keybinds>": " ",
+		"title<DWM Keybinds>": " ",
+		"title<Emacs Leader Keybinds>": " ",
+		"title<Kitty Configuration>": " ",
+		"title<WezTerm Configuration>": " ",
+		"title<Yazi Configuration>": " ",
+		"title<Cheatsheets Viewer>": " ",
+		"title<Documentation Viewer>": " ",
+		"title<^Wallpapers$>": " ",
+		"title<^Video Wallpapers$>": " ",
+		"title<^qs-wlogout$>": " "
+		}
+	},
+
+"custom/spotify": {
         "exec": "playerctl -p spotify metadata --format '{{ artist }} - {{ title }}' 2>/dev/null || echo ''",
         "return-type": "",
         "max-length": 40,
@@ -94,50 +203,26 @@
         "tooltip": false
     },
 
-// ----- Center -----
+// Modules Right 
 
-    "clock": {
-        "format": "󰥔 {:%I:%M %p}", 
-        "tooltip": false
-    },
+"group/audio": {
+	"orientation": "inherit",
+	"drawer": {
+		"transition-duration": 500,
+		"children-class": "pulseaudio",
+		"transition-left-to-right": true
+        },
+	"modules": [
+		"pulseaudio",
+		"pulseaudio#microphone"
+	]
+},
 
-// ----- Right Side -----
-
-    "pulseaudio": {
-        "format": "{volume}% {icon}", 
-        "format-icons": [
-                "󰕿",  // 0-33%
-                "󰖀",  // 34-66%
-                "󰕾"   // 67-100%
-            ],
-        "format-muted": "󰝟"
-    },
-
-    "network": {
-        "format-wifi": "{icon} {essid}",
-        "format-icons": [
-            "󰤯",  // 0-20%
-            "󰤟",  // 20-40%
-            "󰤢",  // 40-60%
-            "󰤥",  // 60-80%
-            "󰤨"   // 80-100%
-        ],
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "Disconnected ⚠"
-    },
-
-    "bluetooth": {
-        "format": "",
-        "format-connected": " {device_alias}",
-        "format-disabled": "󰂲",
-        "tooltip-format": "{controller_alias}",
-        "tooltip-format-connected": "{device_enumerate}",
-        "on-click": "blueman-manager"
-    },
-
-    "custom/power": {
-        "format": "󰐥",
-        "tooltip": false,
-        "on-click": "~/.config/scripts/power.sh"
-    }
+"group/connections": {
+	"orientation": "inherit",
+	"modules": [
+		"network",
+		"bluetooth"
+	]
+}
 }

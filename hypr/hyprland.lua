@@ -54,13 +54,13 @@ hl.env("HYPRCURSOR_SIZE", "22")
 
 hl.config({
 	general = {
-		gaps_in = 3,
-		gaps_out = 3,
+		gaps_in = 2,
+		gaps_out = 0,
 
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { colors.primary, colors.primary }, angle = 45 },
+			active_border = "rgba(255, 255, 255, 1.0)",
 			inactive_border = "rgba(595959aa)",
 		},
 
@@ -74,29 +74,21 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 5,
+		rounding = 2,
 		rounding_power = 2,
 
-		-- Change transparency of focused and unfocused windows
-		active_opacity = 1.0,
-		inactive_opacity = 1.0,
-
-		shadow = {
-			enabled = true,
-			range = 4,
-			render_power = 3,
-			color = 0xee1a1a1a,
-		},
+		active_opacity = 1,
+		inactive_opacity = 1,
 
 		blur = {
 			enabled = true,
-			size = 15,
+			size = 6,
 			passes = 2,
 			ignore_opacity = true,
 
-			noise = 0.02,
+			noise = 0.01,
 			contrast = 1.5,
-			brightness = 0.8,
+			brightness = 1,
 
 			xray = false,
 			new_optimizations = true,
@@ -107,10 +99,6 @@ hl.config({
 		enabled = true,
 	},
 })
-
-windowrulev2 = {
-	"noblur,class:^(firefox)$",
-}
 
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
 hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
